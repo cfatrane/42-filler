@@ -6,11 +6,11 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/18 18:12:25 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/18 19:05:45 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = cfatrane.filler
 
 SRC_PATH = ./srcs/
 
