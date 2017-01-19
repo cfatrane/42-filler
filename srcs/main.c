@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 09:49:42 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/19 18:13:35 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/19 19:51:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
+#include "../includes/filler.h"
 
-# include "../libft/libft.h"
-# include "filler_struct.h"
+int	main(void)
+{
+	t_env env;
 
-int	ft_info(t_env *env);
-
-#endif
+	ft_bzero(&env, sizeof(t_env));
+//	ft_check();
+	ft_info(&env);
+	ft_bzero(&env, sizeof(t_env));
+	return (0);
+}

@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/19 13:42:50 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/19 17:34:29 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ OBJ_PATH = ./objs/
 
 # Name
 
-SRC_NAME =	main.c					\
+SRC_NAME =	main.c	\
+			ft_info.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -49,6 +50,7 @@ $(NAME): $(OBJ)
 	@echo "Creation of $(NAME) ..."
 	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@
 	@echo "$(NAME) created"
+	@cp $(NAME) ./resources/players/
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
