@@ -6,21 +6,27 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/18 19:05:45 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/19 13:42:50 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cfatrane.filler
 
+# Path
+
 SRC_PATH = ./srcs/
-
-SRC_NAME =	main.c					\
-
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ_PATH = ./objs/
 
+# Name
+
+SRC_NAME =	main.c					\
+
 OBJ_NAME = $(SRC_NAME:.c=.o)
+
+# Files
+
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
@@ -33,6 +39,8 @@ LFT = -lft
 CC = gcc $(CFLAGS)
 
 CFLAGS = -Wall -Wextra -Werror
+
+# Rules
 
 all: $(NAME)
 
