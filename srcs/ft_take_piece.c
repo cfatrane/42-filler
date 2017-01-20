@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_info.c                                          :+:      :+:    :+:   */
+/*   ft_take_piece.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:20:20 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/20 11:01:53 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/20 11:02:50 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/20 14:56:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	ft_info_user(t_env *env)
-{
-	char	*line;
-
-	get_next_line(0, &line);
-	env->user.letter = ((ft_strchr(line, '1') != NULL) ? 'O' : 'X');
-	env->oppon.letter = (env->user.letter == 'O' ? 'X' : 'O');
-	return (0);
-}
-
-int	ft_info_map(t_env *env)
+int	ft_take_piece(t_env *env)
 {
 	char	*line;
 
 	get_next_line(0, &line);
 	while (!ft_isdigit(*line))
 		line++;
-	env->map.y = ft_atoi(line);
+	env->piece.y = ft_atoi(line);
 	while (ft_isdigit(*line + 1))
 		line++;
-	env->map.x = ft_atoi(line);
-	return (0);
-}
-
-int	ft_info(t_env *env)
-{
-	ft_info_user(env);
-	ft_info_map(env);
+	env->piece.x = ft_atoi(line);
 	return (0);
 }

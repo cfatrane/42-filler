@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/19 17:34:29 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/20 11:23:11 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,10 @@ OBJ_PATH = ./objs/
 
 # Name
 
-SRC_NAME =	main.c	\
-			ft_info.c	\
+SRC_NAME =	main.c			\
+			ft_info.c		\
+			ft_take_map.c	\
+			ft_take_piece.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -31,7 +33,7 @@ SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-CPPFLAGS = -I./includes/
+INC_PATH = -I./includes/
 
 LDFLAGS = -L./libft/
 
@@ -54,7 +56,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CPPFLAGS) -o $@ -c $<
+	@$(CC) $(INC_PATH) -o $@ -c $<
 
 clean:
 	@make clean -C ./libft/

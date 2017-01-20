@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/20 11:21:44 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/20 11:36:53 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/20 14:10:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/filler.h"
+#include "libft.h"
 
-int	main(void)
+char	**ft_strnew_two(int x, int y)
 {
-	t_env env;
+	int		i;
+	char	**tab;
 
-	ft_bzero(&env, sizeof(t_env));
-//	ft_check();
-	ft_info(&env);
-	ft_take_map(&env);
-	ft_take_piece(&env);
-	ft_bzero(&env, sizeof(t_env));
-	return (0);
+	i = -1;
+	if (!(tab = (char**)malloc(sizeof(*tab) * y)))
+		return (NULL);
+	while (++i < y)
+	{
+		if (!(tab[i] = (char*)malloc(sizeof(**tab) * x)))
+			return (NULL);
+	}
+	return (tab);
 }
