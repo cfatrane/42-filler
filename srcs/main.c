@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/20 15:12:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/20 19:26:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	ft_info(&env);
 	ft_take_map(&env);
 	ft_take_piece(&env);
-	ft_push_piece(&env);
+//	ft_push_piece(&env);
 	ft_bzero(&env, sizeof(t_env));
 	return (0);
 }
