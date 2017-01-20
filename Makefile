@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/20 11:23:11 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/20 15:11:54 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,15 @@ SRC_PATH = ./srcs/
 
 OBJ_PATH = ./objs/
 
+INC_PATH = -I./includes/
+
 # Name
 
 SRC_NAME =	main.c			\
 			ft_info.c		\
 			ft_take_map.c	\
 			ft_take_piece.c	\
+			ft_push_piece.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -33,7 +36,7 @@ SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-INC_PATH = -I./includes/
+# Flags
 
 LDFLAGS = -L./libft/
 
@@ -52,7 +55,6 @@ $(NAME): $(OBJ)
 	@echo "Creation of $(NAME) ..."
 	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@
 	@echo "$(NAME) created"
-	@cp $(NAME) ./resources/players/
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -64,7 +66,6 @@ clean:
 	@rm -f $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 	@echo "Files .o deleted\n"
-
 
 fclean: clean
 	@make fclean -C ./libft/
