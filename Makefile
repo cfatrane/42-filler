@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/20 15:11:54 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/21 16:05:51 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_NAME =	main.c			\
 			ft_take_map.c	\
 			ft_take_piece.c	\
 			ft_push_piece.c	\
+			ft_search_piece.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

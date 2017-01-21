@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:20:20 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/20 20:02:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/21 17:37:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 int	ft_info_user(t_env *env)
 {
 	get_next_line(0, &env->line);
-	env->user.letter = ((ft_strchr(env->line, '1') != NULL) ? 'O' : 'X');
+	env->user.letter = ((ft_strstr(env->line, "p1") != NULL) ? 'O' : 'X');
+	env->user.last = (env->user.letter == 'O' ? 'o' : 'x');
 	env->oppon.letter = (env->user.letter == 'O' ? 'X' : 'O');
+	env->oppon.last = (env->oppon.letter == 'O' ? 'o' : 'x');
 	return (0);
 }
 
 int	ft_info_map(t_env *env)
 {
 	get_next_line(0, &env->line);
-
 	while (!ft_isdigit(*env->line))
 		env->line++;
 	env->map.y = ft_atoi(env->line);
