@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 09:49:57 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/21 17:00:14 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/22 15:10:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ typedef struct		s_piece
 	char			**map;
 	int				push_x;
 	int				push_y;
+	int				min_y;
+	int				min_x;
+	int				max_y;
+	int				max_x;
 }					t_piece;
 
 typedef struct		s_env

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:02:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/21 16:44:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/22 16:27:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,59 @@ int	ft_info_piece(t_env *env)
 	return (0);
 }
 
-int	ft_pos_piece(t_env *env)
+int	ft_pos_piece_min(t_env *env)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
-	while (ft_strchr(env->piece.map[i], '*') == NULL)
-		ft_strchr(env->piece.map[i++], env->user.letter);
-	while (env->piece.map[i][j] != '*')
-		j++;
+	env->piece.min_x = env->piece.x;
+	while (i < env->piece.y)
+	{
+		j = 0;
+		while (j < env->piece.x)
+		{
+			if (env->piece.map[i][j] == STAR)
+				env->piece.min_y = i;
+			j++;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < env->piece.y)
+	{
+		j = 0;
+		while (j < env->piece.x)
+		{
+			if (env->piece.map[i][j] == STAR)
+				if (j < env->piece.min_x)
+					env->piece.min_x = j;
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
+int	ft_pos_piece_max(t_env *env)
+{
+	int	i;
+	int	j;
+
+	i = env->piece.y;
+	j = env->piece.x;
+	while (i--)
+	{
+		j = 0;
+		while (j--)
+		{
+			if (env->piece.map[i][j] == STAR)
+			{
+				env->piece.max_y = i;
+				env->piece.max_x = j;
+			}
+		}
+	}
 	return (0);
 }
 
@@ -53,6 +94,7 @@ int	ft_take_piece(t_env *env)
 		get_next_line(0, &env->line);
 		env->piece.map[i++] = env->line;
 	}
-//	ft_pos_piece(env);
+	ft_pos_piece_min(env);
+	//	ft_pos_piece_max(env);
 	return (0);
 }
