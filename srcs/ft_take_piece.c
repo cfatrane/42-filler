@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:02:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/22 16:27:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/22 16:42:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int	ft_take_piece(t_env *env)
 	while (j--)
 	{
 		get_next_line(0, &env->line);
-		env->piece.map[i++] = env->line;
+		if (*env->line == STAR || *env->line == POINT)
+			env->piece.map[i++] = env->line;
 	}
 	ft_pos_piece_min(env);
 	//	ft_pos_piece_max(env);

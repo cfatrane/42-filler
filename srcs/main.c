@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/22 13:43:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/22 17:10:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	main(void)
 {
 	t_env *env;
 
-	env = ft_memalloc(sizeof(t_env));
+	if (!(env = ft_memalloc(sizeof(t_env))))
+		return (-1);
 	ft_bzero(env, sizeof(t_env));
 	ft_info(env);
 	while (1)
