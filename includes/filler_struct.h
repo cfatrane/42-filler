@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 09:49:57 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/22 15:10:04 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/23 19:17:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 
 typedef struct		s_oppon
 {
+	int				x;
+	int				y;
 	char			letter;
 	char			last;
 }					t_oppon;
 
 typedef struct		s_user
 {
+	int				x;
+	int				y;
 	char			letter;
-	char			last;
 }					t_user;
 
 typedef struct		s_map
@@ -36,19 +39,14 @@ typedef struct		s_piece
 {
 	int				x;
 	int				y;
-	char			**map;
 	int				push_x;
 	int				push_y;
-	int				min_y;
-	int				min_x;
-	int				max_y;
-	int				max_x;
+	char			**map;
 }					t_piece;
 
 typedef struct		s_env
 {
 	char			*line;
-	int				tour;
 	int				info;
 	struct s_map	map;
 	struct s_piece	piece;
