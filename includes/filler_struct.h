@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 09:49:57 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/23 19:17:12 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/24 13:31:43 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ typedef struct		s_piece
 	int				push_y;
 	char			**map;
 }					t_piece;
+
+typedef struct		s_index
+{
+	int				i;
+	int				j;
+}					t_index;
 
 typedef struct		s_env
 {

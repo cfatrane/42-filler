@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_filler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/24 11:10:21 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/23 18:23:22 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/24 11:11:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	main(void)
+int	ft_filler(t_env *env, t_index *index)
 {
-	t_env	*env;
-	t_index	*index;
-
-	if (!(env = ft_memalloc(sizeof(t_env))))
-		return (-1);
-	if (!(index = ft_memalloc(sizeof(t_index))))
-		return (-1);
-	ft_info(env);
-	while (69)
-	{
-		ft_filler(env, index);
-	}
+	ft_info_map(env);
+	ft_take_map(env);
+	ft_take_piece(env);
+	ft_search_piece(env);
+	ft_push_piece(env);
 	return (0);
 }
