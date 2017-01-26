@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_take_map.c                                      :+:      :+:    :+:   */
+/*   ft_token.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 11:21:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/24 11:14:42 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/26 11:00:03 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/26 12:35:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	ft_take_map(t_env *env, t_index *index)
+void	ft_token(t_env *env)
 {
-	index->a = 0;
-	index->b = env->map.y;
-	if (!(env->map.map))
-		env->map.map = ft_strnew_two(env->map.x, env->map.y);
-	get_next_line(0, &env->line);
-	while (index->b--)
+	char	*line;
+	int		i;
+
+	i = 6;
+	get_next_line(0, &line);
+	env->token.y = ft_atoi(&(line[i]));
+	while (line[i] >= '0' && line[i] <= '9')
+		i++;
+	i++;
+	env->token.x = ft_atoi(&(line[i]));
+	env->token.map = (char**)malloc(sizeof(char*)
+	* (env->token.y + 1));
+	i = 0;
+	free(line);
+	while (i < env->token.y)
 	{
-		get_next_line(0, &env->line);
-		if (ft_isdigit(*env->line))
-			env->map.map[index->a++] = ft_strdup(env->line + 4);
+		get_next_line(0, &(env->token.map[i]));
+		i++;
 	}
-	return (0);
+	env->token.map[i] = NULL;
 }

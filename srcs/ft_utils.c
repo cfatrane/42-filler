@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_piece.c                                    :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 15:06:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/21 16:08:13 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/26 11:41:44 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/26 11:42:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	ft_push_piece(t_env *env)
+void	free_tab(char **tab)
 {
-	ft_putnbr_fd(env->piece.push_x ,1);
-	ft_putchar_fd(' ' ,1);
-	ft_putnbr_fd(env->piece.push_y ,1);
-	ft_putchar_fd('\n' ,1);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	free_line(char *line)
+{
+	if (line != NULL)
+		free(line);
 }

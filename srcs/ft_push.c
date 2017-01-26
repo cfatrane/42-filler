@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 11:16:36 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 12:36:14 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/26 11:18:56 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/26 11:19:28 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
+#include "../includes/filler.h"
 
-# include "../libft/libft.h"
-# include "filler_struct.h"
-
-void	ft_info_user(t_env *env);
-void	ft_info_map(t_env *env);
-
-void	ft_map(t_env *env);
-char	**ft_init_map(t_env *env);
-
-void	ft_token(t_env *env);
-int		ft_pose(t_env env, int x, int y);
-
-int		ft_filler(t_env *env);
-void	ft_push(t_coos curr_play);
-
-void	free_tab(char **tab);
-void	free_line(char *line);
-
-#endif
+void	ft_push(t_coos curr_play)
+{
+	ft_putnbr(curr_play.y);
+	ft_putchar(' ');
+	ft_putnbr(curr_play.x);
+	ft_putchar('\n');
+}

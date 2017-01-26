@@ -5,37 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:20:20 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/23 18:12:17 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/26 11:33:19 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/26 12:35:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	ft_info_user(t_env *env)
+void		ft_info_user(t_env *env)
 {
-	get_next_line(0, &env->line);
-	env->user.letter = ((ft_strstr(env->line, "p1") != NULL) ? 'O' : 'X');
-	env->oppon.letter = (env->user.letter == 'O' ? 'X' : 'O');
-	env->oppon.last = (env->oppon.letter == 'O' ? 'o' : 'x');
-	return (0);
+	char	*line;
+
+	get_next_line(0, &line);
+	free(line);
+	env->user = ((ft_strstr(line, "p1") != NULL) ? 'O' : 'X');
+	env->oppon = (env->user == 'O' ? 'X' : 'O');
+	env->map.map = NULL;
 }
 
-int	ft_info_map(t_env *env)
+void		ft_info_map(t_env *env)
 {
-	get_next_line(0, &env->line);
-	while (!ft_isdigit(*env->line))
-		env->line++;
-	env->map.y = ft_atoi(env->line);
-	while (ft_isdigit(*env->line + 1))
-		env->line++;
-	env->map.x = ft_atoi(env->line);
-	return (0);
-}
+	int		i;
+	char	*line;
 
-int	ft_info(t_env *env)
-{
-	ft_info_user(env);
-//	ft_info_map(env);
-	return (0);
+	i = 0;
+	get_next_line(0, &line);
+	while (line[i] && !ft_isdigit(line[i]))
+		i++;
+	env->map.y = ft_atoi(&(line[i]));
+	while (line[i] != ' ')
+		i++;
+	env->map.x = ft_atoi(&(line[i]));
+	env->map.map = ft_init_map(env);
+	free_line(line);
 }

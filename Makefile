@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/23 19:02:11 by cfatrane         ###   ########.fr       *#
+#    Created: 2017/01/25 13:44:53 by cfatrane          #+#    #+#              #
+#*   Updated: 2017/01/26 12:27:34 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,14 @@ INC_PATH = -I./includes/
 
 # Name
 
-SRC_NAME =	main.c				\
-			ft_filler.c			\
-			ft_place.c			\
-			ft_info.c			\
-			ft_take_map.c		\
-			ft_take_piece.c		\
-			ft_push_piece.c		\
-			ft_search_piece.c	\
+SRC_NAME = 	main.c		\
+			ft_map.c	\
+			ft_info.c	\
+			ft_token.c	\
+			ft_check.c	\
+			ft_push.c	\
+			ft_filler.c	\
+			ft_utils.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -55,9 +55,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C./libft/
-	@echo "Creation of $(NAME) ..."
+	@echo "\033[34mCreation of $(NAME) ...\033[0m"
 	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@
-	@echo "$(NAME) created"
+	@echo "\033[32m$(NAME) created\033[0m"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -72,7 +72,7 @@ clean:
 
 fclean: clean
 	@make fclean -C ./libft/
-	@echo "Removal of $(NAME)..."
+	@echo "\033[31mRemoval of $(NAME)...\033[0m"
 	@rm -f $(NAME)
 	@echo "Binary $(NAME) deleted\n"
 

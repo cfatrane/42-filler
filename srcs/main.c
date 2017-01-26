@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:30:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/24 11:10:21 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/26 10:30:11 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/26 11:33:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	main(void)
 {
-	t_env	*env;
-	t_index	*index;
+	t_env	env;
 
-	if (!(env = ft_memalloc(sizeof(t_env))))
-		return (-1);
-	if (!(index = ft_memalloc(sizeof(t_index))))
-		return (-1);
-	ft_info(env);
-	while (69)
+	ft_info_user(&env);
+	env.ok = 1;
+	while (env.ok == 1)
 	{
-		ft_filler(env, index);
+		ft_map(&env);
+		ft_token(&env);
+		env.ok = ft_filler(&env);
+		free_tab(env.token.map);
 	}
+	free_tab(env.map.map);
 	return (0);
 }
