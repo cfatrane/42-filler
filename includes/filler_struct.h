@@ -6,20 +6,20 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:27:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 12:36:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/26 13:18:52 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_STRUCT_H
 # define FILLER_STRUCT_H
 
-typedef struct		s_coos
+typedef struct		s_coord
 {
 	int				y;
 	int				x;
 	int				diff;
 	int				strat;
-}					t_coos;
+}					t_coord;
 
 typedef struct		s_token
 {
@@ -42,7 +42,8 @@ typedef struct		s_env
 	char			oppon;
 	t_map			map;
 	t_token			token;
-	t_coos			last_adv;
+	t_coord			last_oppon;
+	t_coord			token_user;
 }					t_env;
 
 #endif

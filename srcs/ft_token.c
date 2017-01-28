@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:00:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 12:35:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/26 13:03:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_token(t_env *env)
 	i = 6;
 	get_next_line(0, &line);
 	env->token.y = ft_atoi(&(line[i]));
-	while (line[i] >= '0' && line[i] <= '9')
+	while (ft_isdigit(line[i]))
 		i++;
 	i++;
 	env->token.x = ft_atoi(&(line[i]));

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:39:23 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 12:29:48 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/26 13:16:02 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 char		**ft_init_map(t_env *env)
 {
-	char	**board;
+	char	**map;
 	int		i;
 	int		j;
 
 	i = 0;
-	board = (char**)malloc((env->map.y + 1) * sizeof(char*));
+	map = (char**)malloc((env->map.y + 1) * sizeof(char*));
 	while (i < env->map.y)
 	{
-		board[i] = (char*)malloc((env->map.x + 1) * sizeof(char));
+		map[i] = (char*)malloc((env->map.x + 1) * sizeof(char));
 		i++;
 	}
-	board[i] = NULL;
+	map[i] = NULL;
 	i = 0;
 	j = 0;
 	while (i < env->map.y)
 	{
 		while (j < env->map.x)
 		{
-			board[i][j] = '.';
+			map[i][j] = '.';
 			j++;
 		}
-		board[i][j] = '\0';
+		map[i][j] = '\0';
 		i++;
 	}
-	return (board);
+	return (map);
 }
 
 static void	ft_take_map(t_env *env, char *line)
