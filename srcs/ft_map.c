@@ -6,31 +6,31 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:39:23 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 13:16:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/28 20:19:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-char		**ft_init_map(t_env *env)
+char		**ft_init_map(t_filler *filler)
 {
 	char	**map;
 	int		i;
 	int		j;
 
 	i = 0;
-	map = (char**)malloc((env->map.y + 1) * sizeof(char*));
-	while (i < env->map.y)
+	map = (char**)malloc((filler->map.y + 1) * sizeof(char*));
+	while (i < filler->map.y)
 	{
-		map[i] = (char*)malloc((env->map.x + 1) * sizeof(char));
+		map[i] = (char*)malloc((filler->map.x + 1) * sizeof(char));
 		i++;
 	}
 	map[i] = NULL;
 	i = 0;
 	j = 0;
-	while (i < env->map.y)
+	while (i < filler->map.y)
 	{
-		while (j < env->map.x)
+		while (j < filler->map.x)
 		{
 			map[i][j] = '.';
 			j++;
@@ -41,21 +41,21 @@ char		**ft_init_map(t_env *env)
 	return (map);
 }
 
-static void	ft_take_map(t_env *env, char *line)
+static void	ft_take_map(t_filler *filler, char *line)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	while (i < env->map.y)
+	while (i < filler->map.y)
 	{
 		j = 0;
 		while (line[j + 4])
 		{
-			env->map.map[i][j] = line[j + 4];
+			filler->map.map[i][j] = line[j + 4];
 			j++;
 		}
-		if (i != env->map.y - 1)
+		if (i != filler->map.y - 1)
 		{
 			free_line(line);
 			get_next_line(0, &line);
@@ -65,19 +65,19 @@ static void	ft_take_map(t_env *env, char *line)
 	free_line(line);
 }
 
-void		ft_map(t_env *env)
+void		ft_map(t_filler *filler)
 {
 	char	*line;
 
-	if (env->map.map != NULL)
+	if (filler->map.map != NULL)
 	{
 		get_next_line(0, &line);
 		free(line);
 	}
 	else
-		ft_info_map(env);
+		ft_info_map(filler);
 	get_next_line(0, &line);
 	free_line(line);
 	get_next_line(0, &line);
-	ft_take_map(env, line);
+	ft_take_map(filler, line);
 }

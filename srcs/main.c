@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:30:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 12:42:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/28 20:20:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	main(void)
 {
-	t_env	*env;
+	t_filler	*filler;
 
-	env = ft_memalloc(sizeof(t_env));
-	ft_info_user(env);
-	env->ok = 1;
-	while (env->ok == 1)
+	filler = ft_memalloc(sizeof(t_filler));
+	ft_info_user(filler);
+	filler->ok = 1;
+	while (filler->ok == 1)
 	{
-		ft_map(env);
-		ft_token(env);
-		env->ok = ft_filler(env);
-		free_tab(env->token.map);
+		ft_map(filler);
+		ft_token(filler);
+		filler->ok = ft_filler(filler);
+		free_tab(filler->token.map);
 	}
-	free_tab(env->map.map);
+	free_tab(filler->map.map);
 	return (0);
 }

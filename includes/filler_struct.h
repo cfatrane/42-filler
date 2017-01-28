@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:27:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 13:18:52 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/28 20:18:54 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct		s_map
 	char			**map;
 }					t_map;
 
-typedef struct		s_env
+typedef struct		s_filler
 {
 	int				ok;
 	char			user;
@@ -44,6 +44,6 @@ typedef struct		s_env
 	t_token			token;
 	t_coord			last_oppon;
 	t_coord			token_user;
-}					t_env;
+}					t_filler;
 
 #endif
