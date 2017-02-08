@@ -5,27 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 10:30:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 20:20:29 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/08 18:29:36 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/08 20:27:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/filler.h"
 
 int	main(void)
 {
-	t_filler	*filler;
+	t_filler *env;
 
-	filler = ft_memalloc(sizeof(t_filler));
-	ft_info_user(filler);
-	filler->ok = 1;
-	while (filler->ok == 1)
+	if (!(env = ft_memalloc(sizeof(t_filler))))
+		return (-1);
+	ft_info(env);
+/*	ft_putstr_fd("\033[34mUSER = \033[0m",2);
+	ft_putchar_fd(env->user, 2);
+	ft_putchar_fd('\n', 2);
+	ft_putstr_fd("\033[34mOPPON = \033[0m",2);
+	ft_putchar_fd(env->oppon, 2);
+	ft_putchar_fd('\n', 2);
+*/	while (69)
 	{
-		ft_map(filler);
-		ft_token(filler);
-		filler->ok = ft_filler(filler);
-		free_tab(filler->token.map);
+		ft_filler(env);
 	}
-	free_tab(filler->map.map);
 	return (0);
 }

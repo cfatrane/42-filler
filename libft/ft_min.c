@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 11:18:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 20:25:05 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/03 10:38:34 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/04 18:52:18 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/filler.h"
+#include "libft.h"
 
-void	ft_push(t_filler *filler)
+int	ft_min(int *tab, unsigned int len)
 {
-	ft_putnbr(filler->token_user.y);
-	ft_putchar(' ');
-	ft_putnbr(filler->token_user.x);
-	ft_putchar('\n');
+	unsigned int	i;
+	int				min;
+
+	if (len == 0)
+		return (0);
+	i = 1;
+	min = *tab;
+	while (i != len)
+	{
+		if (min > *(tab + i))
+			min = *(tab + i);
+		i++;
+	}
+	return (min);
 }

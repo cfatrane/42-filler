@@ -5,45 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 10:27:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 20:18:54 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/07 11:18:42 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/08 20:14:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_STRUCT_H
 # define FILLER_STRUCT_H
 
-typedef struct		s_coord
-{
-	int				y;
-	int				x;
-	int				diff;
-	int				strat;
-}					t_coord;
+#include "filler.h"
 
-typedef struct		s_token
+typedef struct	s_filler
 {
-	int				y;
-	int				x;
-	char			**map;
-}					t_token;
-
-typedef struct		s_map
-{
-	int				y;
-	int				x;
-	char			**map;
-}					t_map;
-
-typedef struct		s_filler
-{
-	int				ok;
-	char			user;
-	char			oppon;
-	t_map			map;
-	t_token			token;
-	t_coord			last_oppon;
-	t_coord			token_user;
-}					t_filler;
+	char		user;
+	char		oppon;
+	size_t		x_map;
+	size_t		y_map;
+	char		**map;
+	size_t		x_token;
+	size_t		y_token;
+	char		**token;
+	char		*line;
+	ssize_t		push_x;
+	ssize_t		push_y;
+}				t_filler;
 
 #endif

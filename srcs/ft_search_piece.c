@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_token.c                                         :+:      :+:    :+:   */
+/*   ft_search_piece.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 11:00:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 20:19:48 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/08 19:34:10 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/08 19:53:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-void	ft_token(t_filler *filler)
+int	ft_search_piece(t_filler *env)
 {
-	char	*line;
-	int		i;
+	(void)env;
+/*	int	i;
+	int	j;
 
-	i = 6;
-	get_next_line(0, &line);
-	filler->token.y = ft_atoi(&(line[i]));
-	while (ft_isdigit(line[i]))
-		i++;
-	i++;
-	filler->token.x = ft_atoi(&(line[i]));
-	filler->token.map = (char**)malloc(sizeof(char*)
-	* (filler->token.y + 1));
 	i = 0;
-	free(line);
-	while (i < filler->token.y)
+	while (i < env->piece.y)
 	{
-		get_next_line(0, &(filler->token.map[i]));
+		j = 0;
+		while (j < env->piece.x)
+		{
+			if (env->map.map[i][j] == env->oppon.letter)
+			{
+				env->oppon.y = i;
+				env->oppon.x = j;
+			}
+			if (env->map.map[i][j] == env->user.letter)
+			{
+				env->user.y = i;
+				env->user.x = j;
+			}
+			j++;
+		}
 		i++;
 	}
-	filler->token.map[i] = NULL;
+	ft_place(env);
+*/	return (0);
 }
