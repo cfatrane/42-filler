@@ -1,43 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_take_piece.c                                    :+:      :+:    :+:   */
+/*   ft_take_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 18:27:58 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/08 19:53:45 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/08 18:25:22 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/10 11:36:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../includes/filler.h"
 
-int	ft_info_piece(t_filler *env)
+char **malloc_tab(ssize_t y_map, ssize_t x_map)
 {
-	get_next_line(0, &env->line);
-	while (!ft_isdigit(*env->line))
-		env->line++;
-	env->y_token = ft_atoi(env->line);
-	while (ft_isdigit(*env->line + 1))
-		env->line++;
-	env->x_token = ft_atoi(env->line);
-	return (0);
-}
+	char	**map;
+	int		i;
 
-int	ft_take_piece(t_filler *env)
+	i = 0;
+	if (!(map = (char**)malloc(sizeof(*map) * y_map)))
+		return (NULL);
+	while (i < y_map)
+	{
+		map[i] = (char*)malloc(sizeof(**map)  * x_map);
+		i++;
+	}
+	return (map);
+}
+int	take_map(t_filler *env)
 {
 	int	i;
 	int	j;
 
-	ft_info_piece(env);
 	i = 0;
-	j = env->y_token;
-	if (!(env->token))
-		env->token = ft_strnew_two(env->x_token, env->y_token);
+	j = env->y_map;
+//	if (!(env->map))
+//		env->map = ft_strnew_two(env->y_map, env->x_map);
+	env->map = malloc_tab(env->y_map, env->x_map);
+	get_next_line(0, &env->line);
 	while (j--)
 	{
 		get_next_line(0, &env->line);
-		env->token[i++] = ft_strdup(env->line);
+		if (ft_isdigit(*env->line))
+			env->map[i++] = ft_strdup(env->line + 4);
 	}
 	return (0);
 }

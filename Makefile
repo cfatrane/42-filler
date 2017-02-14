@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/08 19:58:49 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/10 11:33:11 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,13 @@ INC_PATH = -I./includes/
 # Name
 
 SRC_NAME =	main.c			\
-			ft_filler.c		\
-			ft_info.c		\
-			ft_take_map.c	\
-			ft_take_piece.c	\
-			ft_push_piece.c	\
-			ft_search_piece.c	\
-			ft_place.c		\
+			filler.c		\
+			info.c			\
+			take_map.c		\
+			take_piece.c	\
+			push_piece.c	\
+			search_piece.c	\
+			place.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -40,7 +40,6 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
-
 
 # Flags
 

@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/03 10:42:47 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/13 16:58:40 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC_NAME =	ft_memset.c				\
 			ft_atoi.c				\
 			ft_atol.c				\
 			ft_atoll.c				\
+			ft_atou.c				\
 			ft_strnew.c				\
 			ft_strdel.c				\
 			ft_strclr.c				\
@@ -139,6 +140,8 @@ SRC_NAME =	ft_memset.c				\
 			ft_nbrcmp.c				\
 			ft_nbcmp_min.c			\
 			ft_nbcmp_max.c			\
+			ft_iseven.c				\
+			ft_ismultiple.c			\
 			ft_size_tab_base.c		\
 			ft_count_words_sep.c	\
 			ft_strlen_sep.c			\
