@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_search_piece.c                                  :+:      :+:    :+:   */
+/*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 19:34:10 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/10 11:37:50 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/15 14:55:59 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/15 16:09:28 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	search_piece(t_filler *env)
+int	position(t_filler *env)
 {
-	(void)env;
-/*	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
-	while (i < env->piece.y)
+	while (i < env->y_map)
 	{
 		j = 0;
-		while (j < env->piece.x)
+		while (j < env->x_map)
 		{
-			if (env->map.map[i][j] == env->oppon.letter)
+			if (env->map[i][j] == env->oppon)
 			{
-				env->oppon.y = i;
-				env->oppon.x = j;
+				env->o_pos_x = j;
+				env->o_pos_y = i;
 			}
-			if (env->map.map[i][j] == env->user.letter)
+			if (env->map[i][j] == env->user)
 			{
-				env->user.y = i;
-				env->user.x = j;
+				env->u_pos_x = j;
+				env->u_pos_y = i;
 			}
 			j++;
 		}
 		i++;
 	}
-	ft_place(env);
-*/	return (0);
+	env->algo = (env->o_pos_y > env->u_pos_y) ? 1 : 0;
+	return (0);
 }

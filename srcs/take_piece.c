@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_take_piece.c                                    :+:      :+:    :+:   */
+/*   take_piece.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 18:27:58 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/10 11:36:56 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/15 14:23:50 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/15 16:11:24 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	info_piece(t_filler *env)
-{
-	get_next_line(0, &env->line);
-	while (!ft_isdigit(*env->line))
-		env->line++;
-	env->y_token = ft_atoi(env->line);
-	while (ft_isdigit(*env->line + 1))
-		env->line++;
-	env->x_token = ft_atoi(env->line);
-	return (0);
-}
-
-int	take_piece(t_filler *env)
+int	take_piece(t_filler *env, char *line)
 {
 	int	i;
 	int	j;
 
-	info_piece(env);
+	j = 6;
+	env->y_token = ft_atoi(&line[6]);
+	while (ft_isdigit(line[j]))
+		j++;
+	j++;
+	env->x_token = ft_atoi(&line[j]);
 	i = 0;
-	j = env->y_token;
 	if (!(env->token))
-		env->token = ft_strnew_two(env->x_token, env->y_token);
-	while (j--)
+		if (!(env->token = ft_memalloc(sizeof(char *) * env->y_token)))
+			return (-1);
+	while (i < env->y_token)
 	{
-		get_next_line(0, &env->line);
-		env->token[i++] = ft_strdup(env->line);
+		get_next_line(0, &line);
+		env->token[i] = ft_strdup(line);
+		i++;
 	}
 	return (0);
 }

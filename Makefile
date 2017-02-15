@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/14 15:48:46 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/15 16:09:07 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ SRC_NAME =	main.c			\
 			take_piece.c	\
 			push_piece.c	\
 			search_piece.c	\
-			place.c			\
+			position.c		\
+			check_piece.c	\
+			algo.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -45,11 +47,7 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 LDFLAGS = -L./libft/
 
-PRINTFFLAG = -L./ft_printf/
-
 LFT = -lft
-
-PRINTF = -lftprintf
 
 CC = gcc $(CFLAGS)
 
@@ -62,7 +60,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C./libft/
 	@echo "\033[34mCreation of $(NAME) ...\033[0m"
-	@$(CC) $(LDFLAGS) $(PRINTFFLAG) $(LFT) $(PRINTF) $(OBJ) -o $@
+	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@
 	@echo "\033[32m$(NAME) created\n\033[0m"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
