@@ -6,13 +6,13 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:01:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:09:49 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/15 16:32:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-static int	ft_strategy_down_left(t_filler *env)
+static int	algo_down_left(t_filler *env)
 {
 	int	i;
 	int	j;
@@ -36,7 +36,7 @@ static int	ft_strategy_down_left(t_filler *env)
 	return (0);
 }
 
-static int	ft_strategy_up_right(t_filler *env)
+static int	algo_up_right(t_filler *env)
 {
 	int	i;
 	int	j;
@@ -60,7 +60,7 @@ static int	ft_strategy_up_right(t_filler *env)
 	return (0);
 }
 
-static int	ft_strategy_down_right(t_filler *env)
+static int	algo_down_right(t_filler *env)
 {
 	int	i;
 	int	j;
@@ -84,7 +84,7 @@ static int	ft_strategy_down_right(t_filler *env)
 	return (0);
 }
 
-static int	ft_strategy_up_left(t_filler *env)
+static int	algo_up_left(t_filler *env)
 {
 	int	i;
 	int	j;
@@ -111,13 +111,13 @@ static int	ft_strategy_up_left(t_filler *env)
 int			algo(t_filler *env)
 {
 	if (env->algo == 0)
-		return (ft_strategy_up_left(env));
+		return (algo_up_left(env));
 	else if (env->algo == 1)
-		return (ft_strategy_down_right(env));
+		return (algo_down_right(env));
 	else if (env->algo == 2)
-		return (ft_strategy_up_right(env));
+		return (algo_up_right(env));
 	else if (env->algo == 3)
-		return (ft_strategy_down_left(env));
+		return (algo_down_left(env));
 	else
 		return (0);
 }

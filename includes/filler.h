@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 10:36:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:04:49 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/15 16:27:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	take_map(t_filler *env);
 int	take_piece(t_filler *env, char *line);
 
 int	algo(t_filler *env);
+int	position(t_filler *env);
 
 int	try_token(t_filler *env, int i, int j);
 

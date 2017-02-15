@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/15 16:23:09 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/15 16:25:33 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_NAME =	main.c			\
 			take_token.c	\
 			push_token.c	\
 			position.c		\
-			check_toekn.c	\
+			check_token.c	\
 			algo.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
