@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:23:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:11:12 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/15 16:13:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	take_map(t_filler *env)
 
 	i = 0;
 	if (!(env->map))
-		env->map = ft_memalloc(sizeof(char *) * env->y_map);
+		if (!(env->map = ft_memalloc(sizeof(char *) * env->y_map)))
+			return (-1);
 	get_next_line(0, &line);
 	while (i <= env->y_map)
 	{

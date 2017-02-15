@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/15 16:09:07 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/15 16:23:09 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,10 @@ SRC_NAME =	main.c			\
 			filler.c		\
 			info.c			\
 			take_map.c		\
-			take_piece.c	\
-			push_piece.c	\
-			search_piece.c	\
+			take_token.c	\
+			push_token.c	\
 			position.c		\
-			check_piece.c	\
+			check_toekn.c	\
 			algo.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

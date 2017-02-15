@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   take_piece.c                                       :+:      :+:    :+:   */
+/*   push_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 14:23:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:11:24 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/15 16:23:29 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/15 16:24:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	take_piece(t_filler *env, char *line)
+int	push_piece(t_filler *env)
 {
-	int	i;
-	int	j;
-
-	j = 6;
-	env->y_token = ft_atoi(&line[6]);
-	while (ft_isdigit(line[j]))
-		j++;
-	j++;
-	env->x_token = ft_atoi(&line[j]);
-	i = 0;
-	if (!(env->token))
-		if (!(env->token = ft_memalloc(sizeof(char *) * env->y_token)))
-			return (-1);
-	while (i < env->y_token)
+	if (env->algo == 0)
+		env->algo = 3;
+	else if (env->algo == 1)
+		env->algo = 2;
+	else if (env->algo == 2)
+		env->algo = 1;
+	else if (env->algo == 3)
+		env->algo = 0;
+	if (env->ok == -1)
 	{
-		get_next_line(0, &line);
-		env->token[i] = ft_strdup(line);
-		i++;
+		env->gameover = 1;
+		ft_putnbr(env->push_y);
+		ft_putchar(' ');
+		ft_putnbr(env->push_x);
+		ft_putchar('\n');
+	}
+	else
+	{
+		ft_putnbr(env->push_y);
+		ft_putchar(' ');
+		ft_putnbr(env->push_x);
+		ft_putchar('\n');
 	}
 	return (0);
 }

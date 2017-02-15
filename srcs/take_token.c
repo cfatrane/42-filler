@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_piece.c                                       :+:      :+:    :+:   */
+/*   take_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 14:24:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 15:52:25 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/15 16:22:45 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/15 16:22:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	push_piece(t_filler *env)
+int	take_piece(t_filler *env, char *line)
 {
-	if (env->algo == 0)
-		env->algo = 3;
-	else if (env->algo == 1)
-		env->algo = 2;
-	else if (env->algo == 2)
-		env->algo = 1;
-	else if (env->algo == 3)
-		env->algo = 0;
-	if (env->ok == 1)
+	int	i;
+
+	while (!ft_isdigit(*line))
+		line++;
+	env->y_token = ft_atoi(line);
+	while (ft_isdigit(*line + 1))
+		line++;
+	env->x_token = ft_atoi(line);
+	i = 0;
+	if (!(env->token))
+		if (!(env->token = ft_memalloc(sizeof(char *) * env->y_token)))
+			return (-1);
+	while (i < env->y_token)
 	{
-		env->gameover = 1;
-		ft_putnbr(env->push_y);
-		ft_putchar(' ');
-		ft_putnbr(env->push_x);
-		ft_putchar('\n');
-	}
-	else
-	{
-		ft_putnbr(env->push_y);
-		ft_putchar(' ');
-		ft_putnbr(env->push_x);
-		ft_putchar('\n');
+		get_next_line(0, &line);
+		env->token[i] = ft_strdup(line);
+		i++;
 	}
 	return (0);
 }
