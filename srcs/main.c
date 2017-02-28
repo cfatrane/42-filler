@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 14:24:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/28 10:16:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/28 10:18:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int		main(void)
 		if (env->gameover == 1)
 			break ;
 	}
-	free (env);
+	free(env);
 	return (0);
 }
