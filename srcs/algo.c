@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 15:01:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:32:25 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:33:04 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 14:36:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-static int	algo_down_left(t_filler *env)
+static int		algo_down_left(t_filler *env)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = env->y_map;
 	while (i > 0)
@@ -36,10 +36,10 @@ static int	algo_down_left(t_filler *env)
 	return (0);
 }
 
-static int	algo_up_right(t_filler *env)
+static int		algo_up_right(t_filler *env)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < env->y_map)
@@ -60,10 +60,10 @@ static int	algo_up_right(t_filler *env)
 	return (0);
 }
 
-static int	algo_down_right(t_filler *env)
+static int		algo_down_right(t_filler *env)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = env->y_map;
 	while (i > 0)
@@ -84,10 +84,10 @@ static int	algo_down_right(t_filler *env)
 	return (0);
 }
 
-static int	algo_up_left(t_filler *env)
+static int		algo_up_left(t_filler *env)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < env->y_map)
@@ -108,7 +108,7 @@ static int	algo_up_left(t_filler *env)
 	return (0);
 }
 
-int			algo(t_filler *env)
+int				algo(t_filler *env)
 {
 	if (env->algo == 0)
 		return (algo_up_left(env));

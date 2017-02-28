@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 16:23:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:24:17 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:37:41 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 14:43:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	push_piece(t_filler *env)
+void	push_token(t_filler *env)
 {
 	if (env->algo == 0)
 		env->algo = 3;
@@ -22,7 +22,7 @@ int	push_piece(t_filler *env)
 		env->algo = 1;
 	else if (env->algo == 3)
 		env->algo = 0;
-	if (env->ok == -1)
+	if (env->ko == 1)
 	{
 		env->gameover = 1;
 		ft_putnbr(env->push_y);
@@ -37,5 +37,4 @@ int	push_piece(t_filler *env)
 		ft_putnbr(env->push_x);
 		ft_putchar('\n');
 	}
-	return (0);
 }

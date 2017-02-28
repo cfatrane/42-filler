@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 16:22:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:22:48 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:24:50 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 14:49:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	take_piece(t_filler *env, char *line)
+int	take_token(t_filler *env, char *line)
 {
-	int	i;
+	int		n;
+	int		i;
 
-	while (!ft_isdigit(*line))
-		line++;
-	env->y_token = ft_atoi(line);
-	while (ft_isdigit(*line + 1))
-		line++;
-	env->x_token = ft_atoi(line);
+	n = 6;
 	i = 0;
-	if (!(env->token))
-		if (!(env->token = ft_memalloc(sizeof(char *) * env->y_token)))
+	env->y_token = ft_atoi(&line[6]);
+	while (ft_isdigit(line[n]))
+		n++;
+	n++;
+	env->x_token = ft_atoi(&line[n]);
+	if (!env->token)
+		if (!(env->token = ft_strnew_two(env->y_token, env->x_token)))
 			return (-1);
 	while (i < env->y_token)
 	{

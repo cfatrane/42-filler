@@ -5,25 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 18:29:36 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:08:44 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:24:44 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 14:40:33 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	main(void)
+int		main(void)
 {
-	t_filler *env;
+	char		*line;
+	t_filler	*env;
 
 	if (!(env = ft_memalloc(sizeof(t_filler))))
 		return (-1);
-	info_user(env);
+	get_next_line(0, &line);
+	env->user = (ft_atoi(line + 10) == 1) ? 'O' : 'X';
 	while (69)
 	{
-		filler(env);
-		if (env->fin == 1)
+		get_next_line(0, &line);
+		env->y_map = ft_atoi(&line[8]);
+		env->x_map = ft_atoi(&line[11]);
+		take_map(env);
+		if (algo(env) == 0)
+			env->ko = 1;
+		push_token(env);
+		if (env->gameover == 1)
 			break ;
 	}
+	free (env);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/13 11:32:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/27 14:09:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,11 @@ static int		ft_check(char *save, char **line)
 
 int				get_next_line(const int fd, char **line)
 {
-	char			*buf;
+	char			buf[BUFF_SIZE + 1];
 	static t_gnl	*save = NULL;
 	t_gnl			*tmp;
 	int				ret;
 
-	buf = ft_strnew(BUFF_SIZE);
 	if (!(save))
 		save = ft_create_list(fd);
 	if (fd == -1 || line == NULL || BUFF_SIZE <= 0)

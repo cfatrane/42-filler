@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 14:55:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 16:09:28 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:27:31 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 14:29:02 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	position(t_filler *env)
+void		position(t_filler *env)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
+	env->oppon = (env->user == 'O') ? 'X' : 'O';
 	while (i < env->y_map)
 	{
 		j = 0;
@@ -38,5 +39,4 @@ int	position(t_filler *env)
 		i++;
 	}
 	env->algo = (env->o_pos_y > env->u_pos_y) ? 1 : 0;
-	return (0);
 }

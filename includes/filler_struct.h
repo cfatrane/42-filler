@@ -6,14 +6,14 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 11:18:42 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 15:41:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/27 14:20:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_STRUCT_H
 # define FILLER_STRUCT_H
 
-#include "filler.h"
+# include "filler.h"
 
 typedef struct	s_filler
 {
@@ -32,16 +32,8 @@ typedef struct	s_filler
 	int		push_x;
 	int		push_y;
 	int		algo;
-	int		ok;
+	int		ko;
 	int		gameover;
-	int		fin;
 }				t_filler;
 
-typedef struct	s_ind
-{
-	int			i;
-	int			j;
-	int			x;
-	int			y;
-}				t_ind;
 #endif
